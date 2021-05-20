@@ -1,0 +1,8 @@
+.customNav{
+    height: 100px;
+    background: url('../public/uploads/customError.png');
+}
+.body{
+    margin: 110px 0;
+    text-align: center;
+}

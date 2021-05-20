@@ -1,0 +1,19 @@
+.nav{
+   display: flex;
+   justify-content: space-between;
+   padding: 32px 130px;
+}
+
+.nav>ul:first-child{
+    display: flex;
+    justify-content: space-between;
+    width: 68%;
+}
+.nav>ul{
+    margin: 0;
+    padding: 0;
+    font-weight: 450;
+font-size: 18px;
+    list-style: none;
+    color: white;
+}
