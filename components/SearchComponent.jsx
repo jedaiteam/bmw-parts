@@ -23,6 +23,10 @@ function SearchComponent() {
                <div>
                    <select name="" id="">
                        <option value="">Seriya nömrəsi</option>
+                       <option value="">3 seriya</option>
+                       <option value="">4 seriya</option>
+                       <option value="">5 seriya</option>
+                       <option value="">7 seriya</option>
                    </select>
                </div>
                <div>

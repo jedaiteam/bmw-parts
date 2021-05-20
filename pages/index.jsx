@@ -1,14 +1,15 @@
 import Head from 'next/head'
-
 import Footer from '../components/footer'
 import HomeWrapper from '../components/HomeWrapper'
 import Link from 'next/link'
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
 import SearchComponent from '../components/SearchComponent'
 import styles from '../styles/Home.module.css'
 import BmwPartCard from '../components/BmwPartsCard'
 
 export default function Home() {
+  const [slider, setslider] = useState("/uploads/slider1.jpg")
   const arr=[1,2,3,4,5,6,7,8]
   return (
    
@@ -22,8 +23,20 @@ export default function Home() {
 
 
       <div className={styles.customHeader}>
+    <div className={styles.sliderClick}>
+    <li className={slider=='/uploads/OEMG_BACKUP_SLIDE_JPG 1.png'?styles.active:""} 
+    onClick={()=>{setslider('/uploads/OEMG_BACKUP_SLIDE_JPG 1.png')}}></li>
+
+<li className={slider=='/uploads/slider1.jpg'?styles.active:""}
+    onClick={()=>{setslider('/uploads/slider1.jpg')}}></li>
+    
+  <li className={slider=='/uploads/download 2.png'?styles.active:""}
+    onClick={()=>{setslider('/uploads/download 2.png')}}></li>
+
+ 
+    </div>
       <img
-                    src="/uploads/slider1.jpg"
+                    src={slider}
                
                 />
 

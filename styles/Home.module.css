@@ -2,6 +2,25 @@
     position: relative;
     width: 100%;
 }
+.customHeader>div.sliderClick{
+    display: inline-block;
+position: absolute;
+bottom: 310px;
+left: 103px;
+}
+.customHeader>div.sliderClick li.active{
+    width: 9px;
+    height: 9px;
+}
+.customHeader>div.sliderClick li{
+    list-style: none;
+    cursor: pointer;
+    margin-top: 77px;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+}
 .CustomNav{
     position: absolute;
     width: 100%;
@@ -16,7 +35,7 @@
 .title{
     font-weight: 450;
 font-size: 72px;
-
+left: 185px;
     top: 174px;
     position: absolute;
     color: white;

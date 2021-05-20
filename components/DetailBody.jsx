@@ -1,14 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Style from '../styles/DetailBody.module.css'
 import Image from 'next/image'
 const DetailBody = () => {
+
+const [slider, setSlider] = useState("/uploads/rec.png")
     return (
         <div className='custom_wrapper'>
           <div className={Style.parentElement}>
             <div className={Style.slider}>
                 <div>
                 <Image
-                    src="/uploads/rec.png"
+                    src={slider}
                     alt="Picture of the author"
                     width={520}
                     height={500}
@@ -17,15 +19,15 @@ const DetailBody = () => {
                 </div>
 
                 <ul>
-                    <li>
+                    <li onClick={()=>{setSlider('/uploads/download.jpg')}}>
                     <Image
-                    src="/uploads/rec.png"
+                    src="/uploads/download.jpg"
                     alt="Picture of the author"
                     width={163}
                     height={157}
                 /> 
                     </li>
-                    <li>
+                    <li onClick={()=>{setSlider('/uploads/rec.png')}}>
                     <Image
                     src="/uploads/rec.png"
                     alt="Picture of the author"
@@ -33,7 +35,7 @@ const DetailBody = () => {
                     height={157}
                 />
                     </li>
-                    <li>
+                    <li onClick={()=>{setSlider('/uploads/rec.png')}}>
                     <Image
                     src="/uploads/rec.png"
                     alt="Picture of the author"
