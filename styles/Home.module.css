@@ -80,3 +80,30 @@ color: #000000;
 .categories{
     margin-top: -200px;
 }
+.lastBanner{
+   
+    position: relative;
+    background: url('../public/uploads/footerBanner.png');
+    height: 413px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.lasbannerParent{
+    margin: 80px 0;
+}
+.lastBanner .lastBannerLink{
+    position: absolute;
+    bottom: 103px;
+    left: 103px;
+}
+
+.lastBanner .lastBannerLink>a{
+    font-size: 36px;
+    line-height: 46px;
+    /* identical to box height */
+    
+    
+    color: #FFFFFF;
+}
+
