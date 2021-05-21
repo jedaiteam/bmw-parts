@@ -8,9 +8,10 @@ import SearchComponent from '../components/SearchComponent'
 import styles from '../styles/Home.module.css'
 import BmwPartCard from '../components/BmwPartsCard'
 
-export default function Home() {
-  const [slider, setslider] = useState("/uploads/slider1.jpg")
-  const arr=[1,2,3,4,5,6,7,8]
+const Home=(data) =>{
+
+  const [slider, setslider] = useState(0)
+  const arr=[1,2,3,4,5,6,7]
   return (
    
     <div >
@@ -24,19 +25,19 @@ export default function Home() {
 
       <div className={styles.customHeader}>
     <div className={styles.sliderClick}>
-    <li className={slider=='/uploads/OEMG_BACKUP_SLIDE_JPG 1.png'?styles.active:""} 
-    onClick={()=>{setslider('/uploads/OEMG_BACKUP_SLIDE_JPG 1.png')}}></li>
 
-<li className={slider=='/uploads/slider1.jpg'?styles.active:""}
-    onClick={()=>{setslider('/uploads/slider1.jpg')}}></li>
-    
-  <li className={slider=='/uploads/download 2.png'?styles.active:""}
-    onClick={()=>{setslider('/uploads/download 2.png')}}></li>
+      {data.data.map((ban,index)=>(
+  <li key={index} className={slider==index?styles.active:""} 
+  onClick={()=>{setslider(index)}}></li>
+      ))}
+  
+
+
 
  
     </div>
       <img
-                    src={slider}
+                    src={'https://bmwpartsbaku.az/'+data.data[slider].pc_iage}
                
                 />
 
@@ -197,3 +198,16 @@ export default function Home() {
    
   )
 }
+
+
+export const getServerSideProps = async () => {
+  const res = await fetch('https://bmwpartsbaku.az/api/slider')
+  const data  = await res.json()
+
+  return {
+    props: {
+      data,
+    },
+  }
+}
+export default Home

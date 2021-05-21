@@ -1,7 +1,8 @@
 import React from 'react'
 import Style from '../styles/Car.module.css'
 import Image from 'next/image'
-const Car = () => {
+const Car = ({kuza}) => {
+    
     return (
   <>
             <div>
@@ -16,11 +17,11 @@ const Car = () => {
 
 
             <div className={Style.content}>
-                <h3>BMW 258</h3>
-                <p>Kuza nömrəsi:  F10</p>
-                <p>İli: 2009</p>
-                <p>Alınma tarixi:  9 Aprel 2021</p>
-                <p>Hansı ölkədən gətirilib: Yaponiya</p>
+    <h3>{kuza.model}</h3>
+                <p>Kuza nömrəsi:  {kuza.model}</p>
+                <p>İli: {kuza.year}</p>
+                <p>Alınma tarixi:  {kuza.purchase_date}</p>
+                <p>Hansı ölkədən gətirilib: {kuza.caoyntry}</p>
 
 
 

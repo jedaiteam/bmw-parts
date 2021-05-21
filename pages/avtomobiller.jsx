@@ -3,18 +3,31 @@ import BodyImage from '../components/BodyImage'
 import Car from '../components/Car'
 import Layout from '../components/Layout'
 import Style from '../styles/Car.module.css'
-const data=[1,2,3,4,5,6,7,8,9,10,11,12]
-const Cars = () => {
+
+const Cars = (cars) => {
+    const data=[...cars.cars];
+   
     return (
     <Layout>
    <BodyImage/>
 <div className="custom_wrapper">
 <div className={Style.parentelement}>
-    {data.map((item,index)=>(<Car/>))}
+
+    {data.map((item,index)=>(<Car key={item.id} kuza={item}/>))}
 </div>
 </div>
     </Layout>
     )
 }
 
+export const getServerSideProps = async () => {
+    const res = await fetch('https://bmwpartsbaku.az/public/api/car')
+    const cars  = await res.json()
+  
+    return {
+      props: {
+        cars,
+      },
+    }
+  }
 export default Cars
