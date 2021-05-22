@@ -11,7 +11,10 @@ import BmwPartCard from '../components/BmwPartsCard'
 const Home=(data) =>{
 
   const [slider, setslider] = useState(0)
+  const [lang, setlang] = useState('en')
   const arr=[1,2,3,4,5,6,7]
+
+
   return (
    
     <div >
@@ -42,10 +45,10 @@ const Home=(data) =>{
                 />
 
          <div className={styles.CustomNav}>
-         <Navbar/>
+         <Navbar lang={lang} setlang={setlang}/>
          </div>
          <div className="custom_wrapper">
-           <h1 className={styles.title}>BMW-nizi  <br/> güncəlləşdirin</h1>
+      <h1 className={styles.title}>{data.data[slider][`title_${lang}`]}</h1>
          </div>
 
          <SearchComponent/>
