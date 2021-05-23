@@ -1,3 +1,7 @@
+@font-face{
+    src: url('../public/fonts/MarkPro-Book.otf');
+    font-family: MarkPro;
+  }
 .parentElement{
     margin-top: -100px;
     display: flex;
@@ -8,6 +12,7 @@
     width: 787px;
 }
 .parentElement>.content>p{
+    font-family: MarkPro;
     font-size: 24px;
     margin-top: 40px;
 }

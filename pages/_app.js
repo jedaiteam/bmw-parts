@@ -1,16 +1,13 @@
 import '../styles/globals.css'
-import React, { useState } from 'react';
-import {UserContext} from '../contexts/UserContext'
-function MyApp({ Component, pageProps }) {
+import React, { useState } from "react";
+import { Context } from "../context/Context";
 
-  const [lang, setlang] = useState('az')
- 
-  return 
-  <UserContext.Provider value='k'>
-    <Component {...pageProps} lang={lang} setlang={setlang}/>
-    </UserContext.Provider>
-  
+function MyApp({ Component, pageProps }) {
+  const [context, setContext] = useState("az");
+
+  return <Context.Provider value={[context, setContext]}>
+  <Component {...pageProps} />
+  </Context.Provider>
 }
 
 export default MyApp
-/* test */

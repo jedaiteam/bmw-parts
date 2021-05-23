@@ -4,7 +4,7 @@ import Car from '../components/Car'
 import Layout from '../components/Layout'
 import Style from '../styles/Car.module.css'
 
-const Cars = () => {
+const Cars = (cars) => {
   const [data, setdata] = useState([]);
 
 
@@ -23,9 +23,14 @@ const Cars = () => {
     <Layout>
    <BodyImage/>
 <div className="custom_wrapper">
+
+{data.length<1 && <div className={Style.spinnerParent}>
+<div className={Style.spinner}></div>
+</div>}
+
 <div className={Style.parentelement}>
 
-    {data.map((item,index)=>(<Car key={item.id} kuza={item}/>))}
+  {data.map((item,index)=>(<Car key={item.id} kuza={item}/>))} 
 </div>
 </div>
     </Layout>

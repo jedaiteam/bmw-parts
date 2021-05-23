@@ -43,3 +43,7 @@ padding-left: 99px;
 .quickLink>li{
     margin-left: 7px;
 }
+
+.quickLink>li{
+    font-family: MarkPro;
+}

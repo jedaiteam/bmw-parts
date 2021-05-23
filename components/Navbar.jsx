@@ -1,40 +1,72 @@
-import React from 'react'
+import React, { useState ,useContext,useEffect} from 'react';
 import style from '../styles/Navbar.module.css'
 import Link from 'next/link'
-const Navbar = (lang) => {
+import { Context } from "../context/Context";
+const Navbar = (props) => {
+    const [context, setContext] = useContext(Context);
+  console.log(context);
+
+
  
+  const  cehckLang=()=>{
+    if(window.sessionStorage.getItem('lang')!="ru"){
+        window.sessionStorage.setItem('lang','ru');
+        setContext("ru") 
+      }  else{
+        window.sessionStorage.setItem('lang','az');
+        setContext("az") 
+        } 
+ 
+  } 
+
+  useEffect(() => {
+    if(window.sessionStorage.getItem('lang')=="ru"){
+     
+        setContext("ru") 
+      }  else{
+       
+        setContext("az") 
+        }  
+   
+  }, [cehckLang])
     return (
         <div className={style.nav}>
             <ul>
                 <li>
                 <Link href="/">
-                <a>Əsas səhifə</a>
+               {context=='az'? <a>Əsas səhifə</a> : <a>Главная страница</a>}
                 </Link>
                 </li>
                 <li>
                 <Link href="/Katalog">
-                <a>Kataloq</a>
+                {context=='az'? <a>Kataloq</a> : <a>Каталог</a>}
+               
                 </Link>
                 </li>
                
                 <li>
                 <Link href="/avtomobiller">
-                <a>Avtomobillər</a>
+                {context=='az'? <a>Avtomobillər</a> : <a>Легковые автомобили</a>}
+              
                 </Link>
                 </li>
                 <li>
                 <Link href="/nece-almaq">
-                <a>Necə almaq</a>
+           
+                {context=='az'? <a>Necə almaq</a> : <a>     Как купить</a>}
+                
                 </Link>
                 </li>
                 <li>
                 <Link href="/contact">
-                <a>Əlaqə</a>
+             
+                
+                {context=='az'? <a>Əlaqə</a> : <a>   Контакт</a>}
                 </Link>
                 </li>
             </ul>
             <ul>
-                <li onClick={()=>{lang.setlang('ru')}}>AZ</li>
+    <li onClick={cehckLang}>{context=='az' ? 'RU':'AZ'}</li>
             </ul>
         </div>
     )

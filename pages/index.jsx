@@ -2,20 +2,50 @@ import Head from 'next/head'
 import Footer from '../components/footer'
 import HomeWrapper from '../components/HomeWrapper'
 import Link from 'next/link'
-import React, { useState } from 'react';
+import React, { useState, useEffect,useContext} from 'react';
 import Navbar from '../components/Navbar'
 import SearchComponent from '../components/SearchComponent'
 import styles from '../styles/Home.module.css'
 import BmwPartCard from '../components/BmwPartsCard'
+import { Context } from "../context/Context";
+const Home=(data) =>{
 
-const Home=(props) =>{
-  const data = props.data;
-  const lang = props.lang
-  const setlang=props.setlang;
-
+  const [lang, setlang] = useContext(Context);
   const [slider, setslider] = useState(0)
+  const [thirtSeria, setthirtSeria] = useState([])
+  const [fivetSeria, setfiveSeria] = useState([])
+  const [sevenSeria, setsevenSeria] = useState([])
 
-  const arr=[1,2,3,4,5,6,7]
+  console.log(thirtSeria);
+const getthirdSeria= async()=>{
+  const res = await fetch('https://bmwpartsbaku.az/public/api/products')
+  const product= await res.json();
+  setthirtSeria(product);
+}
+
+
+const getfivetSeria= async()=>{
+  const res = await fetch('https://bmwpartsbaku.az/public/api/products')
+  const product= await res.json();
+
+  setfiveSeria(product);
+}
+
+
+const getsevenSeria= async()=>{
+  const res = await fetch('https://bmwpartsbaku.az/public/api/products')
+  const product= await res.json();
+
+  setsevenSeria(product);
+}
+
+
+  useEffect(() => {
+    getthirdSeria();
+    getfivetSeria();
+    getsevenSeria();
+ 
+  }, [])
 
 
   return (
@@ -32,7 +62,7 @@ const Home=(props) =>{
       <div className={styles.customHeader}>
     <div className={styles.sliderClick}>
 
-      {data.map((ban,index)=>(
+      {data.data.map((ban,index)=>(
   <li key={index} className={slider==index?styles.active:""} 
   onClick={()=>{setslider(index)}}></li>
       ))}
@@ -43,7 +73,7 @@ const Home=(props) =>{
  
     </div>
       <img
-                    src={'https://bmwpartsbaku.az/'+data[slider].pc_iage}
+                    src={'https://bmwpartsbaku.az/'+data.data[slider].pc_iage}
                
                 />
 
@@ -51,7 +81,7 @@ const Home=(props) =>{
          <Navbar lang={lang} setlang={setlang}/>
          </div>
          <div className="custom_wrapper">
-      <h1 className={styles.title}>{data[slider][`title_${lang}`]}</h1>
+      <h1 className={styles.title}>{data.data[slider][`title_${lang}`]}</h1>
          </div>
 
          <SearchComponent/>
@@ -88,8 +118,8 @@ const Home=(props) =>{
     </div>
 </div>
 <div className={styles.katalogParent}>
-  {arr.map((item)=>(
-    <BmwPartCard key={item}/>
+  {thirtSeria.map((item,index)=>(
+   <BmwPartCard data={item} key={index}/>
   ))}
   
 </div>
@@ -132,8 +162,8 @@ const Home=(props) =>{
 </div>
 
 <div className={styles.katalogParent}>
-  {arr.map((item)=>(
-    <BmwPartCard key={item}/>
+  {fivetSeria.map((item,index)=>(
+    <BmwPartCard data={item} key={index}/>
   ))}
   
 </div>
@@ -191,8 +221,8 @@ const Home=(props) =>{
 </div>
 
 <div className={styles.katalogParent}>
-  {arr.map((item)=>(
-    <BmwPartCard key={item}/>
+  {sevenSeria.map((item,index)=>(
+    <BmwPartCard data={item} key={index}/>
   ))}
   
 </div>

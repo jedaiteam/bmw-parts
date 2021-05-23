@@ -3,8 +3,7 @@ import BmwPartsCard from '../components/BmwPartsCard'
 import BodyBanner from '../components/BodyBanner'
 import Layout from '../components/Layout'
 
-const Katalog = ({lang}) => {
-
+const Katalog = () => {
     return (
       <Layout>
        <BodyBanner/>

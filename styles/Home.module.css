@@ -3,19 +3,38 @@
     width: 100%;
 }
 .customHeader>div.sliderClick{
+    height: 270px;
     display: inline-block;
 position: absolute;
 bottom: 310px;
 left: 103px;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+}
+.customHeader>div.sliderClick::before{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 65px;
+    background-color: #FFFFFF;
+}
+.customHeader>div.sliderClick::after{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 65px;
+    background-color: #FFFFFF;
 }
 .customHeader>div.sliderClick li.active{
     width: 9px;
     height: 9px;
+    transform: translateX(-3px);
 }
 .customHeader>div.sliderClick li{
     list-style: none;
     cursor: pointer;
-    margin-top: 77px;
+    
     width: 4px;
     height: 4px;
     background-color: #fff;
