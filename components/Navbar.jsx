@@ -6,7 +6,7 @@ const Navbar = (props) => {
     const [context, setContext] = useContext(Context);
   console.log(context);
 
-
+/* test */
  
   const  cehckLang=()=>{
     if(window.sessionStorage.getItem('lang')!="ru"){
