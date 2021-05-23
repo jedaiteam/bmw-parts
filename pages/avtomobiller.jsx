@@ -4,7 +4,7 @@ import Car from '../components/Car'
 import Layout from '../components/Layout'
 import Style from '../styles/Car.module.css'
 
-const Cars = (cars) => {
+const Cars = () => {
   const [data, setdata] = useState([]);
 
 

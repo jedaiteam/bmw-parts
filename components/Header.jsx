@@ -2,11 +2,12 @@ import React from 'react'
 import Style from '../styles/Header.module.css'
 import Navbar from './Navbar'
 import SearchComponent from './SearchComponent'
-function Header() {
+function Header(lang) {
+    
     return (
        <>
             <div className={Style.headerNavbar}>
-                <Navbar/>
+                <Navbar lang={lang.lang} setlang={lang.setlang}/>
                 <SearchComponent/>
             </div>
        </>

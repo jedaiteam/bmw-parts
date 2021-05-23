@@ -1,8 +1,8 @@
 import React from 'react'
 import style from '../styles/Navbar.module.css'
 import Link from 'next/link'
-const Navbar = (props) => {
-   
+const Navbar = (lang) => {
+ 
     return (
         <div className={style.nav}>
             <ul>
@@ -34,7 +34,7 @@ const Navbar = (props) => {
                 </li>
             </ul>
             <ul>
-                <li onClick={()=>{props.setlang('ru')}}>AZ</li>
+                <li onClick={()=>{lang.setlang('ru')}}>AZ</li>
             </ul>
         </div>
     )

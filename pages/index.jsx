@@ -8,10 +8,13 @@ import SearchComponent from '../components/SearchComponent'
 import styles from '../styles/Home.module.css'
 import BmwPartCard from '../components/BmwPartsCard'
 
-const Home=(data) =>{
+const Home=(props) =>{
+  const data = props.data;
+  const lang = props.lang
+  const setlang=props.setlang;
 
   const [slider, setslider] = useState(0)
-  const [lang, setlang] = useState('en')
+
   const arr=[1,2,3,4,5,6,7]
 
 
@@ -29,7 +32,7 @@ const Home=(data) =>{
       <div className={styles.customHeader}>
     <div className={styles.sliderClick}>
 
-      {data.data.map((ban,index)=>(
+      {data.map((ban,index)=>(
   <li key={index} className={slider==index?styles.active:""} 
   onClick={()=>{setslider(index)}}></li>
       ))}
@@ -40,7 +43,7 @@ const Home=(data) =>{
  
     </div>
       <img
-                    src={'https://bmwpartsbaku.az/'+data.data[slider].pc_iage}
+                    src={'https://bmwpartsbaku.az/'+data[slider].pc_iage}
                
                 />
 
@@ -48,7 +51,7 @@ const Home=(data) =>{
          <Navbar lang={lang} setlang={setlang}/>
          </div>
          <div className="custom_wrapper">
-      <h1 className={styles.title}>{data.data[slider][`title_${lang}`]}</h1>
+      <h1 className={styles.title}>{data[slider][`title_${lang}`]}</h1>
          </div>
 
          <SearchComponent/>
@@ -86,7 +89,7 @@ const Home=(data) =>{
 </div>
 <div className={styles.katalogParent}>
   {arr.map((item)=>(
-    <BmwPartCard/>
+    <BmwPartCard key={item}/>
   ))}
   
 </div>
@@ -130,7 +133,7 @@ const Home=(data) =>{
 
 <div className={styles.katalogParent}>
   {arr.map((item)=>(
-    <BmwPartCard/>
+    <BmwPartCard key={item}/>
   ))}
   
 </div>
@@ -189,7 +192,7 @@ const Home=(data) =>{
 
 <div className={styles.katalogParent}>
   {arr.map((item)=>(
-    <BmwPartCard/>
+    <BmwPartCard key={item}/>
   ))}
   
 </div>

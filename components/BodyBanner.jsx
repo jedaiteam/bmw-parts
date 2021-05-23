@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useState ,useEffect} from 'react'
 import Style from '../styles/BodyBanner.module.css'
 import BmwPartsCard from './BmwPartsCard'
 import BodyImage from './BodyImage'
 const BodyBanner = () => {
-   const data=[1,2,3,4,5,6,7,8,9,10,11,12]
+    const [data, setdata] = useState([]);
+
+
+
+   useEffect(async() => {
+    const res = await fetch('https://bmwpartsbaku.az/public/api/products')
+     const cars= await res.json();
+   
+    setdata(cars);
+ 
+    
+  
+   },[])
+
+
     return (
 <div className={Style.first}>
     
@@ -12,7 +26,7 @@ const BodyBanner = () => {
     
             <div>
             {data.map((e,index)=>(
-                <BmwPartsCard key={index}/>
+                <BmwPartsCard key={index} data={e}/>
            ))}
             </div>
          
