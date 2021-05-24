@@ -2,7 +2,9 @@ import React, { useState ,useContext,useEffect} from 'react';
 import style from '../styles/Navbar.module.css'
 import Link from 'next/link'
 import { Context } from "../context/Context";
+import Image from 'next/image'
 const Navbar = (props) => {
+
     const [context, setContext] = useContext(Context);
   console.log(context);
 
@@ -32,6 +34,16 @@ const Navbar = (props) => {
     return (
         <div className={style.nav}>
             <ul>
+            <div>
+                <Link href="/">
+              <a>   <Image
+                    src="/uploads/logo.png"
+                    alt="Picture of the author"
+                    width={211}
+                    height={60}
+                /></a>
+                </Link>
+                </div>
                 <li>
                 <Link href="/">
                {context=='az'? <a>Əsas səhifə</a> : <a>Главная страница</a>}

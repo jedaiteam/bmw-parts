@@ -18,14 +18,15 @@ const Home=(data) =>{
 
   console.log(thirtSeria);
 const getthirdSeria= async()=>{
-  const res = await fetch('https://bmwpartsbaku.az/public/api/products')
+  const res = await fetch('https://bmwpartsbaku.az/public/api/products/seriya/1')
   const product= await res.json();
   setthirtSeria(product);
+
 }
 
 
 const getfivetSeria= async()=>{
-  const res = await fetch('https://bmwpartsbaku.az/public/api/products')
+  const res = await fetch('https://bmwpartsbaku.az/public/api/products/seriya/3')
   const product= await res.json();
 
   setfiveSeria(product);
@@ -33,7 +34,7 @@ const getfivetSeria= async()=>{
 
 
 const getsevenSeria= async()=>{
-  const res = await fetch('https://bmwpartsbaku.az/public/api/products')
+  const res = await fetch('https://bmwpartsbaku.az/public/api/products/seriya/4')
   const product= await res.json();
 
   setsevenSeria(product);
@@ -143,7 +144,7 @@ const getsevenSeria= async()=>{
       </svg>
       </span>
 
-      <span>BMW 3-cü seriya</span>
+      <span>BMW 5-ciseriya</span>
 
       <span><svg width="65" height="31" viewBox="0 0 65 31" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M16 0H33L16 31H0L16 0Z" fill="#017BEA"/>

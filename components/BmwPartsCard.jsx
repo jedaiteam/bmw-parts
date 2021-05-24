@@ -7,7 +7,7 @@ const BmwPartsCard = ({data}) => {
 
     console.log(data);
     return (
-        <Link href="/product-detail/5">
+        <Link href={`/product-detail/${data.id}`}>
         <a> 
         <div className={Style.partCards}>
    

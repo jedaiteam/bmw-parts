@@ -1,8 +1,10 @@
 import React from 'react'
 import Style from '../styles/SearchComponent.module.css'
 import Image from 'next/image'
-
+import { useRouter } from 'next/router'
 function SearchComponent() {
+const router = useRouter()
+
     return (
         <div className={Style.searchArea}>
             <div className="logo_small">
@@ -43,7 +45,13 @@ function SearchComponent() {
                    </select>
                </div>
                <div>
-                  <button>
+                  <button type="button" onClick={()=>{
+                      router.push({
+                          pathname:'/Katalog',
+                          query:{q:'5',gg:'99'},
+                          
+                      })
+                  }}>
                 <Image
                    src="/uploads/Search.svg"
                    alt="Picture of the author"
